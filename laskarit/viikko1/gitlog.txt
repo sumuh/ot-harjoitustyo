@@ -1,0 +1,116 @@
+commit 43ba289ef23a6c09cdf81ce29d6a195a34726bcd
+Author: Sus <sumusumu@helsinki.fi>
+Date:   Mon Mar 18 10:49:14 2019 +0200
+
+    muutoksia
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 02cff5a0b207b3d2bd567be15d82ba3c251d0997
+Author: Sus <sumusumu@helsinki.fi>
+Date:   Mon Mar 18 10:45:13 2019 +0200
+
+    kolme uutta tiedostoa
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 76418c318bae1cb5bb4917b4cb31d9e5752cd97d
+Author: Sus <sumusumu@helsinki.fi>
+Date:   Mon Mar 18 10:38:50 2019 +0200
+
+    blaa
+
+ eka.txt    | 3 +--
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+commit 42148d67d47cef3b29c740d60b664e148abc65a5
+Author: Sus <sumusumu@helsinki.fi>
+Date:   Mon Mar 18 10:35:43 2019 +0200
+
+    rename
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 00dc3f0ea8206f81bec5efca1dda949dcb4a04e5
+Author: Sus <sumusumu@helsinki.fi>
+Date:   Mon Mar 18 10:33:44 2019 +0200
+
+    poistetaan
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 4da715036164769937544aa960c39c4ecd734222
+Author: Sus <sumusumu@helsinki.fi>
+Date:   Mon Mar 18 10:29:23 2019 +0200
+
+    tekstiä
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 274c8852a341476f9fc99ee797b45ca9eb6fdaf4
+Author: Sus <sumusumu@helsinki.fi>
+Date:   Mon Mar 18 10:27:05 2019 +0200
+
+    muutetaan tiedostoa
+
+ tiedosto.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit f7954dffa7081f5fcb46c164e06b4499cdded247
+Author: Sus <sumusumu@helsinki.fi>
+Date:   Mon Mar 18 10:21:50 2019 +0200
+
+    lisää
+
+ stuff/neljas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 604d9c154997724039ab5972135572f1433b70d1
+Author: Sus <sumusumu@helsinki.fi>
+Date:   Mon Mar 18 10:19:42 2019 +0200
+
+    lisää muutoksia
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 5956a301ebb59fc49c6bfc7d3935e71a7a8218af
+Author: Sus <sumusumu@helsinki.fi>
+Date:   Mon Mar 18 10:16:10 2019 +0200
+
+    kolmas tiedosto
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit eb4acd2554a3f4a39ac987483f70ed33d0965bf1
+Author: Sus <sumusumu@helsinki.fi>
+Date:   Mon Mar 18 10:12:38 2019 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 0038f866a34bec63a4778fe4775170811161f3ff
+Author: Sus <sumusumu@helsinki.fi>
+Date:   Mon Mar 18 10:08:48 2019 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+
+
