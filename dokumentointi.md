@@ -4,8 +4,6 @@
 
 * Sovellus on klassikoksi muodostuneesta virtuaalisesta lemmikistä Tamagotchista inspiraationsa saanut peli, jossa käyttäjä pitää huolta virtuaalisesta kissasta. 
 
-**Käyttöliittymäluonnos**
-
 **Perusversion tarjoama toiminnallisuus**
 
 *Kun peli käynnistetään ensimmäistä kertaa (tai aloitetaan alusta):*
