@@ -10,3 +10,5 @@ _Viikko 1_
 
 [dokumentointi.md](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentointi/dokumentointi.md)
 
+[tyoaikakirjanpito.md](https://github.com/sumuh/ot-harjoitustyo/blob/master/tyoaikakirjanpito.md)
+
