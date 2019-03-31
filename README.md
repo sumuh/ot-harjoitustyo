@@ -8,5 +8,5 @@ _Viikko 1_
 
 [komentorivi.txt](https://github.com/sumuh/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-[dokumentointi.md](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentointi.md)
+[dokumentointi.md](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentointi/dokumentointi.md)
 
