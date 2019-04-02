@@ -6,7 +6,7 @@ Sovellus on klassikoksi muodostuneesta virtuaalisesta lemmikistä Tamagotchista 
 
 [dokumentointi.md](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/dokumentointi.md)
 
-[tyoaikakirjanpito.md](https://github.com/sumuh/ot-harjoitustyo/blob/master/tyoaikakirjanpito.md)
+[tyoaikakirjanpito.md](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
 ## Komentorivitoiminnot
 
