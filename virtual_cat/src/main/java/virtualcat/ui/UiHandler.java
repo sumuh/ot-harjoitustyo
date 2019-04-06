@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package virtual_cat.ui;
+package virtualcat.ui;
 
-import virtual_cat.logic.Cat;
+import virtualcat.domain.Cat;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  *
  * @author Susanna Muhli
  */
-public class UiHandler extends Application{
+public class UiHandler extends Application {
     
     private String tempName;
     

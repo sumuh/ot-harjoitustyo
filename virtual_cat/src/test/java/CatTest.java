@@ -11,7 +11,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import virtual_cat.logic.Cat;
+import virtualcat.domain.Cat;
 
 /**
  *
