@@ -6,6 +6,8 @@
 package virtualcat.ui;
 
 import virtualcat.domain.Cat;
+import virtualcat.domain.CatService;
+import virtualcat.dao.CatDao;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -27,9 +29,14 @@ import javafx.stage.Stage;
 public class UiHandler extends Application {
     
     private String tempName;
+    private String file;
+    private CatService catService;
+    private CatDao catDao;
     
     @Override
     public void init() throws Exception {
+        this.file = "catfile.txt";
+        this.catDao = new CatDao(this.file);
     }
     
     @Override
@@ -38,10 +45,9 @@ public class UiHandler extends Application {
         BorderPane borderpane = new BorderPane();
         borderpane.setPadding(new Insets(20, 20, 20, 20));
         
-        //luodaan näkymä jossa kissalle annetaan nimi
-        
         GameWindow gameWindow = new GameWindow();
         
+        //luodaan näkymä jossa kissalle annetaan nimi
         
         Label nameLabel = new Label("Choose a name for your cat:");
         TextField nameField = new TextField("");
@@ -52,15 +58,18 @@ public class UiHandler extends Application {
             //nappi tallentaa kissan nimen tiedostoon ja vaihtaa näkymän pelinäkymään
             
             tempName = nameField.getText();
-            try (FileWriter nameWriter = new FileWriter(new File("nametemp.txt"))) {
-                nameWriter.write(tempName);
-                nameWriter.flush();
-                nameWriter.close();
+//            try (FileWriter nameWriter = new FileWriter(new File(file))) {
+//                nameWriter.write(tempName);
+//                nameWriter.flush();
+//                nameWriter.close();
+            try {
+                
+                catDao.save(catDao.create(tempName));
       
                 Scene gameScene = new Scene(gameWindow.getWindow(), 300, 100);
                 window.setScene(gameScene);
 
-            } catch (IOException e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         });
@@ -78,7 +87,7 @@ public class UiHandler extends Application {
     }
     public static String getName() {
         String name = new String();
-        try (Scanner scanner = new Scanner(new File("nametemp.txt"))) {
+        try (Scanner scanner = new Scanner(new File("catfile.txt"))) {
             while (scanner.hasNextLine()) {
                 name = scanner.nextLine();
                 System.out.println(name);

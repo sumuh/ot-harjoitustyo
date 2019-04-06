@@ -16,11 +16,11 @@ public class Cat {
     private int boredom;
     private int fatigue;
     
-    public Cat(String name) {
+    public Cat(String name, int hunger, int boredom, int fatigue) {
         this.name = name;
-        this.hunger = 0;
-        this.boredom = 0;
-        this.fatigue = 0;
+        this.hunger = hunger;
+        this.boredom = boredom;
+        this.fatigue = fatigue;
     }
 
     public String getName() {
