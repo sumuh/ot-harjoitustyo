@@ -4,4 +4,5 @@
 | 31.3. | 1    | maven-projektin luonti |
 | 1.3.  | 2    | yksinkertaisen graafisen käyttöliittymän luonti |
 | 2.3.  | 2    | jacocon lisääminen, ensimmäiset testit, varmistus että komentorivillä kaikki toimii |
-| yht   | 7   | | 
+| 4.3.  | 1    | checkstylen käyttöönotto |
+| yht   | 8   | | 
