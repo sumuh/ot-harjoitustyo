@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package virtualcat.domain;
+package domain;
 
 import java.io.IOException;
-import virtualcat.dao.CatDao;
+import dao.CatDao;
 
 /**
  *

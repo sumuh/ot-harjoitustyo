@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package virtualcat.ui;
+package ui;
 
-import virtualcat.domain.Cat;
-import virtualcat.domain.CatService;
-import virtualcat.dao.CatDao;
+import domain.Cat;
+import domain.CatService;
+import dao.CatDao;
 
 import java.io.File;
 import java.io.FileWriter;

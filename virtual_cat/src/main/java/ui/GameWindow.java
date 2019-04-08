@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package virtualcat.ui;
+package ui;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,8 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
-import virtualcat.domain.CatService;
-import virtualcat.domain.Cat;
+import domain.CatService;
+import domain.Cat;
 
 /**
  *

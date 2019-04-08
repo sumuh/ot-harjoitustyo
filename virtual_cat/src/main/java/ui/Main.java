@@ -1,4 +1,4 @@
-package virtualcat.ui;
+package ui;
 
 import javafx.application.Application;
 
