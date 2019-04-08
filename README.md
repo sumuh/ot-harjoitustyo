@@ -14,6 +14,6 @@ Ohjelman suoritus komentoriviltä komennolla mvn compile exec:java -Dexec.mainCl
 
 Testit suoritetaan komennolla mvn test
 
-Testikattavuusraportti luodaan komennolla jacoco:report
+Testikattavuusraportti luodaan komennolla mvn test jacoco:report
 
 
