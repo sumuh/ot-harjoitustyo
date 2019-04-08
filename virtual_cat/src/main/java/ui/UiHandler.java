@@ -70,7 +70,6 @@ public class UiHandler extends Application {
             
         });
         
-        
         borderpane.setTop(nameLabel);
         borderpane.setCenter(nameButton);
         borderpane.setLeft(nameField);
@@ -81,17 +80,4 @@ public class UiHandler extends Application {
         window.show();
         
     }
-//    public static String getName() {
-//        String name = new String();
-//        try (Scanner scanner = new Scanner(new File("catfile.txt"))) {
-//            while (scanner.hasNextLine()) {
-//                name = scanner.nextLine();
-//                System.out.println(name);
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//        return name;
-//    }
-    
 }
