@@ -40,11 +40,12 @@ public class CatTest {
         assertEquals(0, cat.getFatigue());
     }
     
+    @Test
+    public void raiseStatsWorksWithZeroStats() {
+        cat.raiseStats();
+        assertEquals(1, cat.getHunger());
+        assertEquals(1, cat.getBoredom());
+        assertEquals(2, cat.getFatigue());
+    }
     
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }
