@@ -45,7 +45,19 @@ public class CatTest {
         cat.raiseStats();
         assertEquals(1, cat.getHunger());
         assertEquals(1, cat.getBoredom());
-        assertEquals(2, cat.getFatigue());
+        assertEquals(1, cat.getFatigue());
     }
+    
+    @Test
+    public void raiseStatsWorksWithFullStats() {
+        for (int i = 0; i < 101; i++) {
+            cat.raiseStats();
+        }
+        assertEquals(100, cat.getHunger());
+        assertEquals(100, cat.getBoredom());
+        assertEquals(100, cat.getFatigue());
+    }
+    
+    
     
 }
