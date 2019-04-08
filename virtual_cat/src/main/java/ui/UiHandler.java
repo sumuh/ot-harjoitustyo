@@ -7,6 +7,7 @@ package ui;
 
 import domain.Cat;
 import domain.CatService;
+import dao.FileCatDao;
 import dao.CatDao;
 
 import java.io.File;
@@ -31,12 +32,11 @@ public class UiHandler extends Application {
     private String tempName;
     private String file;
     private CatService catService;
-    private CatDao catDao;
     
     @Override
     public void init() throws Exception {
         this.file = "catfile.txt";
-        this.catDao = new CatDao(this.file);
+        FileCatDao catDao = new FileCatDao(this.file);
         this.catService = new CatService(catDao);
     }
     

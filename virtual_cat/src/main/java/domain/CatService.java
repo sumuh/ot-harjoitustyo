@@ -6,6 +6,7 @@
 package domain;
 
 import java.io.IOException;
+import dao.FileCatDao;
 import dao.CatDao;
 
 /**
@@ -40,7 +41,7 @@ public class CatService {
         return createdCat;
     }
     
-    public void saveGame() throws Exception {
+    public void save() throws Exception {
         this.catDao.save(currentCat);
     }
     
