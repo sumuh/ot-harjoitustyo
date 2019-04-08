@@ -8,6 +8,8 @@ Sovellus on klassikoksi muodostuneesta virtuaalisesta lemmikistä Tamagotchista 
 
 [tyoaikakirjanpito.md](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
+[arkkitehtuurikuvaus.md] (https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 ## Komentorivitoiminnot
 
 Ohjelman suoritus komentoriviltä komennolla mvn compile exec:java -Dexec.mainClass=virtualcat.ui.Main
