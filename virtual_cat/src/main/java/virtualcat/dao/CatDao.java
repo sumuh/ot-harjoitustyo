@@ -7,6 +7,7 @@ package virtualcat.dao;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import virtualcat.domain.Cat;
 
@@ -20,22 +21,14 @@ public class CatDao {
     
     //create cat from the information in the file
     
-    //MODIFY CONSTRUCTOR; SAVE DOESNT PROPERLY SAVE IN FILE
     public CatDao(String file) throws Exception {
-        try {
-            Scanner scanner = new Scanner(new File(file));
-            while (scanner.hasNextLine()) {
-                String[] stats = scanner.nextLine().split(";");
-                String name = stats[0];
-                int hunger = Integer.parseInt(stats[1]);
-                int boredom = Integer.parseInt(stats[2]);
-                int fatigue = Integer.parseInt(stats[3]);
-                Cat cat = new Cat(name, hunger, boredom, fatigue);
-            }
-        } catch (Exception e) {
-            FileWriter writer = new FileWriter(new File(file));
-            writer.close();
-        }
+        this.file = file;
+    }
+    
+    public Cat create(String name) throws Exception{
+        Cat createdCat = new Cat(name, 0, 0, 0);
+        this.save(createdCat);
+        return createdCat;
     }
     
     //save current cat in file
@@ -47,9 +40,23 @@ public class CatDao {
         }
     }
     
-    public Cat create(String name) throws Exception{
-        Cat createdCat = new Cat(name, 0, 0, 0);
-        return createdCat;
+    public Cat getFromFile() throws Exception {
+        Cat cat = null;
+        try {
+            Scanner scanner = new Scanner(new File(file));
+            while (scanner.hasNextLine()) {
+                String[] stats = scanner.nextLine().split(";");
+                String name = stats[0];
+                int hunger = Integer.parseInt(stats[1]);
+                int boredom = Integer.parseInt(stats[2]);
+                int fatigue = Integer.parseInt(stats[3]);
+                cat = new Cat(name, hunger, boredom, fatigue);
+            }
+        } catch (Exception e) {
+            FileWriter writer = new FileWriter(new File(file));
+            writer.close();
+        }
+        return cat;
     }
     
 }

@@ -23,7 +23,7 @@ public class CatTest {
     
     @Before
     public void setUp() {
-        this.cat = new Cat("catName");
+        this.cat = new Cat("catName", 0, 0, 0);
     }
     
     @Test

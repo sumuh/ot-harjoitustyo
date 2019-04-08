@@ -37,41 +37,37 @@ public class UiHandler extends Application {
     public void init() throws Exception {
         this.file = "catfile.txt";
         this.catDao = new CatDao(this.file);
+        this.catService = new CatService(catDao);
     }
     
     @Override
-    public void start(Stage window) {
+    public void start(Stage window) throws Exception {
         
         BorderPane borderpane = new BorderPane();
         borderpane.setPadding(new Insets(20, 20, 20, 20));
         
         GameWindow gameWindow = new GameWindow();
         
-        //luodaan näkymä jossa kissalle annetaan nimi
+        //create scene where name is given
         
         Label nameLabel = new Label("Choose a name for your cat:");
         TextField nameField = new TextField("");
         Button nameButton = new Button("Select");
         
         nameButton.setOnAction((event) -> {
-            
-            //nappi tallentaa kissan nimen tiedostoon ja vaihtaa näkymän pelinäkymään
-            
+            //button saves name in file and changes scene to game scene 
             tempName = nameField.getText();
-//            try (FileWriter nameWriter = new FileWriter(new File(file))) {
-//                nameWriter.write(tempName);
-//                nameWriter.flush();
-//                nameWriter.close();
+            
             try {
-                
-                catDao.save(catDao.create(tempName));
+                catService.create(tempName);
       
-                Scene gameScene = new Scene(gameWindow.getWindow(), 300, 100);
+                Scene gameScene = new Scene(gameWindow.getWindow(this.catService), 300, 100);
                 window.setScene(gameScene);
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
+            
         });
         
         
@@ -85,17 +81,17 @@ public class UiHandler extends Application {
         window.show();
         
     }
-    public static String getName() {
-        String name = new String();
-        try (Scanner scanner = new Scanner(new File("catfile.txt"))) {
-            while (scanner.hasNextLine()) {
-                name = scanner.nextLine();
-                System.out.println(name);
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return name;
-    }
+//    public static String getName() {
+//        String name = new String();
+//        try (Scanner scanner = new Scanner(new File("catfile.txt"))) {
+//            while (scanner.hasNextLine()) {
+//                name = scanner.nextLine();
+//                System.out.println(name);
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+//        return name;
+//    }
     
 }

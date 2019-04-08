@@ -39,4 +39,16 @@ public class Cat {
         return fatigue;
     }
     
+    public void raiseStats() {
+        if (this.hunger < 100) {
+            this.hunger++;
+        }
+        if (this.boredom < 100) {
+            this.boredom++;
+        }
+        if (this.fatigue < 100) {
+            this.fatigue++;
+        }
+    }
+    
 }

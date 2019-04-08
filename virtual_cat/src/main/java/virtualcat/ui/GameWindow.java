@@ -13,19 +13,22 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
+import virtualcat.domain.CatService;
+import virtualcat.domain.Cat;
+
 /**
  *
  * @author Susanna Muhli
  */
 public class GameWindow {
     
-    public Parent getWindow() {
+    public Parent getWindow(CatService catService) throws Exception {
         
-        Label info = new Label(UiHandler.getName());
+        Label info = new Label((catService.getCurrentCat()).getName());
         
-        Label hunger = new Label("Hunger: ");
-        Label boredom = new Label("Boredom: ");
-        Label fatigue = new Label("Fatigue: ");
+        Label hunger = new Label("Hunger: " + (catService.getCurrentCat().getHunger()));
+        Label boredom = new Label("Boredom: " + (catService.getCurrentCat().getBoredom()));
+        Label fatigue = new Label("Fatigue: " + (catService.getCurrentCat().getFatigue()));
         
         HBox statsHBox = new HBox();
         statsHBox.setSpacing(20);
