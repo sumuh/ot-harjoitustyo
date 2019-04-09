@@ -7,4 +7,4 @@
 | 4.3.  | 1    | checkstylen käyttöönotto |
 | 6.3.  | 3    | toiminnallisuuden laajentaminen |
 | 8.3.  | 5    | toiminnallisuuden laajentaminen, luokkien selkeyttäminen, testikattavuuden parantaminen |
-| yht   | 14   | 
+| yht   | 16   | 
