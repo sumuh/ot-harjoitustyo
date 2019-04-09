@@ -12,7 +12,7 @@ Sovellus on klassikoksi muodostuneesta virtuaalisesta lemmikistä Tamagotchista 
 
 ## Komentorivitoiminnot
 
-Ohjelman suoritus komentoriviltä komennolla mvn compile exec:java -Dexec.mainClass=virtualcat.ui.Main
+Ohjelman suoritus komentoriviltä komennolla mvn compile exec:java -Dexec.mainClass=ui.Main
 
 Testit suoritetaan komennolla mvn test
 
