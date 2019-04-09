@@ -8,7 +8,6 @@ package domain;
 import java.io.IOException;
 import dao.FileCatDao;
 import dao.CatDao;
-import java.util.TimerTask;
 
 /**
  *
@@ -19,32 +18,47 @@ public class CatService {
     //this class manages stats etc
     
     private CatDao catDao;
-    private Cat currentCat;
     
     public CatService(CatDao catDao) throws Exception {
         this.catDao = catDao;
-        if (catDao.getFromFile() != null) {
-            this.currentCat = catDao.getFromFile();
+//        if (catDao.getFromFile() != null) {
+//            this.currentCat = catDao.getFromFile();
+//        }
+    }
+    
+    public Cat getCurrentCat() {
+        try {
+            return this.catDao.getFromFile();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-    }
-    
-    public void setCurrentCat(Cat cat) {
-        this.currentCat = cat;
-    }
-    
-    public Cat getCurrentCat() throws Exception {
-        return this.catDao.getFromFile();
+        return null;
     }
     
     public Cat create(String name) throws Exception {
         Cat createdCat = this.catDao.create(name);
-        this.currentCat = createdCat;
+        //this.currentCat = createdCat;
         return createdCat;
     }
     
-    public void save() throws Exception {
-        this.catDao.save(currentCat);
+    public void save(Cat cat) {
+        try {
+            this.catDao.save(cat);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
+    
+    public void raiseCurrentCatStats() {
+        try {
+            Cat newCat = getCurrentCat();
+            newCat.raiseStats();
+            save(newCat);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+    };
     
     
     
