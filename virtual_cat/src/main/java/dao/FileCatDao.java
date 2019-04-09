@@ -45,7 +45,7 @@ public class FileCatDao implements CatDao {
     }
     
     @Override
-    public Cat getFromFile() throws IOException {
+    public Cat getFromFile() {
         Cat cat = null;
         try {
             Scanner scanner = new Scanner(new File(file));
@@ -58,8 +58,7 @@ public class FileCatDao implements CatDao {
                 cat = new Cat(name, hunger, boredom, fatigue);
             }
         } catch (Exception e) {
-            FileWriter writer = new FileWriter(new File(file));
-            writer.close();
+            System.out.println(e.getMessage());
         }
         return cat;
     }

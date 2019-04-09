@@ -8,6 +8,7 @@ package domain;
 import java.io.IOException;
 import dao.FileCatDao;
 import dao.CatDao;
+import java.util.TimerTask;
 
 /**
  *
@@ -31,7 +32,7 @@ public class CatService {
         this.currentCat = cat;
     }
     
-    public Cat getCurrentCat() throws Exception{
+    public Cat getCurrentCat() throws Exception {
         return this.catDao.getFromFile();
     }
     
@@ -44,5 +45,7 @@ public class CatService {
     public void save() throws Exception {
         this.catDao.save(currentCat);
     }
+    
+    
     
 }
