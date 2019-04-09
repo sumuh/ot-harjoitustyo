@@ -18,4 +18,6 @@ Testit suoritetaan komennolla mvn test
 
 Testikattavuusraportti luodaan komennolla mvn test jacoco:report
 
+Checkstylen suoritus komennolla mvn jxr:jxr checkstyle:checkstyle
+
 
