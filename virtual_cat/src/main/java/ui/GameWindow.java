@@ -41,27 +41,15 @@ public class GameWindow {
         hunger.setText("Hunger: " + (catService.getCurrentCat().getHunger()));
         boredom.setText("Boredom: " + (catService.getCurrentCat().getBoredom()));
         fatigue.setText("Fatigue: " + (catService.getCurrentCat().getFatigue()));
-        
-//        Platform.runLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                catService.raiseCurrentCatStats();
-//                hunger.setText("Hunger: " + (catService.getCurrentCat().getHunger()));
-//                boredom.setText("Boredom: " + (catService.getCurrentCat().getBoredom()));
-//                fatigue.setText("Fatigue: " + (catService.getCurrentCat().getFatigue()));
-//            }
-//        });
-
+       
 //        Task dynamicTimeTask = new Task<Void>() {
 //                @Override
 //                protected Void call() throws Exception {
 //                        while (true) {
 //                                catService.raiseCurrentCatStats();
-//                                hunger.setText("Hunger: " + (catService.getCurrentCat().getHunger()));
-//                                boredom.setText("Boredom: " + (catService.getCurrentCat().getBoredom()));
-//                                fatigue.setText("Fatigue: " + (catService.getCurrentCat().getFatigue()));
+//                                updateMessage("Hunger: " + catService.getCurrentCat().getHunger());
 //                                try {
-//                                        Thread.sleep(100);
+//                                        Thread.sleep(1000);
 //                                } catch (InterruptedException ex) {
 //                                        break;
 //                                }
@@ -69,28 +57,28 @@ public class GameWindow {
 //                        return null;
 //                }
 //        };
-
-        Task dynamicTimeTask = new Task<Void>() {
-                @Override
-                protected Void call() throws Exception {
-                        while (true) {
-                                catService.raiseCurrentCatStats();
-                                updateMessage("Hunger: " + catService.getCurrentCat().getHunger());
-                                try {
-                                        Thread.sleep(1000);
-                                } catch (InterruptedException ex) {
-                                        break;
-                                }
-                        }
-                        return null;
-                }
-        };
         
-        hunger.textProperty().bind(dynamicTimeTask.messageProperty());
-        Thread t2 = new Thread(dynamicTimeTask);
-        t2.setName("Updater");
+        Task hungerTask = this.createDynamicTimeTask("Hunger");
+        hunger.textProperty().bind(hungerTask.messageProperty());
+        Thread t2 = new Thread(hungerTask);
+        t2.setName("HungerThread");
         t2.setDaemon(true);
+        
+        Task boredomTask = this.createDynamicTimeTask("Boredom");
+        boredom.textProperty().bind(boredomTask.messageProperty());
+        Thread t3 = new Thread(boredomTask);
+        t3.setName("BoredomThread");
+        t3.setDaemon(true);
+        
+        Task fatigueTask = this.createDynamicTimeTask("Fatigue");
+        fatigue.textProperty().bind(fatigueTask.messageProperty());
+        Thread t4 = new Thread(fatigueTask);
+        t4.setName("FatiguerThread");
+        t4.setDaemon(true);
+        
         t2.start();
+        t3.start();
+        t4.start();
         
         HBox statsHBox = new HBox();
         statsHBox.setSpacing(20);
@@ -106,27 +94,32 @@ public class GameWindow {
         return borderpane;
     }
     
-//    public void refreshStats() throws Exception {
-//        TimerTask repeatedTask = new TimerTask() {
-//            @Override
-//            public void run() {
-//                hunger.setText("Hunger: " + (catService.getCurrentCat().getHunger()));
-//                boredom.setText("Boredom: " + (catService.getCurrentCat().getBoredom()));
-//                fatigue.setText("Fatigue: " + (catService.getCurrentCat().getFatigue()));
-//            }
-//        };
-//        TimerTask repeatedTask2 = new TimerTask() {
-//            @Override
-//            public void run() {
-//                catService.raiseCurrentCatStats();
-//            }
-//        };
-//        Timer timer = new Timer();
-//
-//        long delay  = 1000L;
-//        long period = 1000L;
-//        timer.scheduleAtFixedRate(repeatedTask, delay, period);
-//        timer.scheduleAtFixedRate(repeatedTask2, delay, period);
-//    }
+    public Task createDynamicTimeTask(String stat) {
+        Task dynamicTimeTask = new Task<Void>() {
+                @Override
+                protected Void call() throws Exception {
+                        while (true) {
+                                catService.raiseOneStat(stat);
+                                if (stat.equals("Hunger")) {
+                                    updateMessage("Hunger: " + catService.getCurrentCat().getHunger());
+                                } else if (stat.equals("Boredom")) {
+                                    updateMessage("Boredom: " + catService.getCurrentCat().getBoredom());
+                                } else if (stat.equals("Fatigue")) {
+                                    updateMessage("Fatigue: " + catService.getCurrentCat().getFatigue());
+                                }
+                                
+                                try {
+                                        Thread.sleep(1000);
+                                } catch (InterruptedException ex) {
+                                        break;
+                                }
+                        }
+                        return null;
+                }
+        };
+        return dynamicTimeTask;
+    }
+    
+
     
 }

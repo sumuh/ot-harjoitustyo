@@ -52,13 +52,33 @@ public class CatService {
     public void raiseCurrentCatStats() {
         try {
             Cat newCat = getCurrentCat();
-            newCat.raiseStats();
+            newCat.raiseAllStats();
             save(newCat);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         
     };
+    
+    public void raiseOneStat(String stat) {
+        try {
+            if (stat.equals("Hunger")) {
+                Cat newCat = getCurrentCat();
+                newCat.raiseHunger();
+                save(newCat);
+            } else if (stat.equals("Boredom")) {
+                Cat newCat = getCurrentCat();
+                newCat.raiseBoredom();
+                save(newCat);
+            } else if (stat.equals("Fatigue")) {
+                Cat newCat = getCurrentCat();
+                newCat.raiseFatigue();
+                save(newCat);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     
     

@@ -53,6 +53,7 @@ public class UiHandler extends Application {
         Label nameLabel = new Label("Choose a name for your cat:");
         TextField nameField = new TextField("");
         Button nameButton = new Button("Select");
+        nameButton.setDefaultButton(true);
         
         nameButton.setOnAction((event) -> {
             //button saves name in file and changes scene to game scene 
