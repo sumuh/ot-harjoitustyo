@@ -20,7 +20,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -44,6 +48,7 @@ public class UiHandler extends Application {
     public void start(Stage window) throws Exception {
         
         BorderPane borderpane = new BorderPane();
+        borderpane.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         borderpane.setPadding(new Insets(20, 20, 20, 20));
         
         GameWindow gameWindow = new GameWindow();
@@ -62,7 +67,7 @@ public class UiHandler extends Application {
             try {
                 catService.create(tempName);
       
-                Scene gameScene = new Scene(gameWindow.getWindow(this.catService), 300, 100);
+                Scene gameScene = new Scene(gameWindow.getWindow(this.catService), 400, 300);
                 window.setScene(gameScene);
 
             } catch (Exception e) {
@@ -78,6 +83,7 @@ public class UiHandler extends Application {
         Scene nameScene = new Scene(borderpane, 300, 100);
         window.setScene(nameScene);
         
+        window.setTitle("Virtual cat");
         window.show();
         
     }

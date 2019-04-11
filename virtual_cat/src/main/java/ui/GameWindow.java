@@ -20,6 +20,14 @@ import java.util.TimerTask;
 import java.util.concurrent.CyclicBarrier;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
+import javafx.geometry.Insets;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -43,22 +51,6 @@ public class GameWindow {
         boredom.setText("Boredom: " + (catService.getCurrentCat().getBoredom()));
         fatigue.setText("Fatigue: " + (catService.getCurrentCat().getFatigue()));
        
-//        Task dynamicTimeTask = new Task<Void>() {
-//                @Override
-//                protected Void call() throws Exception {
-//                        while (true) {
-//                                catService.raiseCurrentCatStats();
-//                                updateMessage("Hunger: " + catService.getCurrentCat().getHunger());
-//                                try {
-//                                        Thread.sleep(1000);
-//                                } catch (InterruptedException ex) {
-//                                        break;
-//                                }
-//                        }
-//                        return null;
-//                }
-//        };
-        
         Task hungerTask = this.createDynamicTimeTask("Hunger", 7000);
         hunger.textProperty().bind(hungerTask.messageProperty());
         Thread t2 = new Thread(hungerTask);
@@ -82,6 +74,10 @@ public class GameWindow {
         t3.start();
         t4.start();
         
+        Image image = new Image("file:src/catImage.png");
+        ImageView iv = new ImageView(image);
+        iv.setFitWidth(150);
+        iv.setPreserveRatio(true);
         
         HBox statsHBox = new HBox();
         statsHBox.setSpacing(20);
@@ -91,7 +87,10 @@ public class GameWindow {
         statsHBox.getChildren().add(fatigue);
         
         BorderPane borderpane = new BorderPane();
-        borderpane.setCenter(info);
+        borderpane.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+        borderpane.setPadding(new Insets(20, 20, 20, 20));
+        borderpane.setCenter(iv);
+        borderpane.setBottom(info);
         borderpane.setTop(statsHBox);
         
         return borderpane;
@@ -122,7 +121,5 @@ public class GameWindow {
         };
         return dynamicTimeTask;
     }
-    
-
     
 }

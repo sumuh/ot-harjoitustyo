@@ -42,7 +42,7 @@ public class CatTest {
     
     @Test
     public void raiseStatsWorksWithZeroStats() {
-        cat.raiseStats();
+        cat.raiseAllStats();
         assertEquals(1, cat.getHunger());
         assertEquals(1, cat.getBoredom());
         assertEquals(1, cat.getFatigue());
@@ -51,10 +51,64 @@ public class CatTest {
     @Test
     public void raiseStatsWorksWithFullStats() {
         for (int i = 0; i < 101; i++) {
-            cat.raiseStats();
+            cat.raiseAllStats();
         }
         assertEquals(100, cat.getHunger());
         assertEquals(100, cat.getBoredom());
+        assertEquals(100, cat.getFatigue());
+    }
+    
+    @Test
+    public void raiseHungerWorksWithZeroHunger() {
+        cat.raiseHunger();
+        assertEquals(1, cat.getHunger());
+        assertEquals(0, cat.getBoredom());
+        assertEquals(0, cat.getFatigue());
+    }
+    
+    @Test
+    public void raiseBoredomWorksWithZeroBoredom() {
+        cat.raiseBoredom();
+        assertEquals(0, cat.getHunger());
+        assertEquals(1, cat.getBoredom());
+        assertEquals(0, cat.getFatigue());
+    }
+    
+    @Test
+    public void raiseFatigueWorksWithZeroFatigue() {
+        cat.raiseFatigue();
+        assertEquals(0, cat.getHunger());
+        assertEquals(0, cat.getBoredom());
+        assertEquals(1, cat.getFatigue());
+    }
+    
+    @Test
+    public void raiseHungerWorksWithFullStats() {
+        for (int i = 0; i < 101; i++) {
+            cat.raiseHunger();
+        }
+        assertEquals(100, cat.getHunger());
+        assertEquals(0, cat.getBoredom());
+        assertEquals(0, cat.getFatigue());
+    }
+    
+    @Test
+    public void raiseBoredomWorksWithFullBoredom() {
+        for (int i = 0; i < 101; i++) {
+            cat.raiseBoredom();
+        }
+        assertEquals(0, cat.getHunger());
+        assertEquals(100, cat.getBoredom());
+        assertEquals(0, cat.getFatigue());
+    }
+    
+    @Test
+    public void raiseFatigueWorksWithFullFatigue() {
+        for (int i = 0; i < 101; i++) {
+            cat.raiseFatigue();
+        }
+        assertEquals(0, cat.getHunger());
+        assertEquals(0, cat.getBoredom());
         assertEquals(100, cat.getFatigue());
     }
     
