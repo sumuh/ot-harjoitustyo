@@ -17,6 +17,7 @@ import domain.CatService;
 import domain.Cat;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.CyclicBarrier;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.stage.Stage;
@@ -58,27 +59,29 @@ public class GameWindow {
 //                }
 //        };
         
-        Task hungerTask = this.createDynamicTimeTask("Hunger");
+        Task hungerTask = this.createDynamicTimeTask("Hunger", 7000);
         hunger.textProperty().bind(hungerTask.messageProperty());
         Thread t2 = new Thread(hungerTask);
         t2.setName("HungerThread");
         t2.setDaemon(true);
         
-        Task boredomTask = this.createDynamicTimeTask("Boredom");
+        Task boredomTask = this.createDynamicTimeTask("Boredom", 4000);
         boredom.textProperty().bind(boredomTask.messageProperty());
         Thread t3 = new Thread(boredomTask);
         t3.setName("BoredomThread");
         t3.setDaemon(true);
         
-        Task fatigueTask = this.createDynamicTimeTask("Fatigue");
+        Task fatigueTask = this.createDynamicTimeTask("Fatigue", 10000);
         fatigue.textProperty().bind(fatigueTask.messageProperty());
         Thread t4 = new Thread(fatigueTask);
-        t4.setName("FatiguerThread");
+        t4.setName("FatigueThread");
         t4.setDaemon(true);
         
+
         t2.start();
         t3.start();
         t4.start();
+        
         
         HBox statsHBox = new HBox();
         statsHBox.setSpacing(20);
@@ -94,7 +97,7 @@ public class GameWindow {
         return borderpane;
     }
     
-    public Task createDynamicTimeTask(String stat) {
+    public Task createDynamicTimeTask(String stat, int sleepTime) {
         Task dynamicTimeTask = new Task<Void>() {
                 @Override
                 protected Void call() throws Exception {
@@ -109,7 +112,7 @@ public class GameWindow {
                                 }
                                 
                                 try {
-                                        Thread.sleep(1000);
+                                        Thread.sleep(sleepTime);
                                 } catch (InterruptedException ex) {
                                         break;
                                 }
