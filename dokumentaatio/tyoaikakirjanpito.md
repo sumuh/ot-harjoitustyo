@@ -9,4 +9,5 @@
 | 8.4.  | 5    | toiminnallisuuden laajentaminen, luokkien selkeyttäminen, testikattavuuden parantaminen |
 | 9.4.  | 2    | javafx-toiminnallisuuksiin ja threadeihin tutustuminen |
 | 10.4. | 1    | statsien toiminnan hiomista |
-| yht   | 19   | 
+| 11.4. | 2    | kuvan lisääminen sovellukseen, testikattavuuden parantaminen |
+| yht   | 21   | 
