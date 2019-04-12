@@ -74,9 +74,9 @@ public class GameWindow {
         t3.start();
         t4.start();
         
-        Image image = new Image("file:src/catImage.png");
+        Image image = new Image("file:src/pixil-frame-160.png");
         ImageView iv = new ImageView(image);
-        iv.setFitWidth(150);
+        //iv.setFitWidth(150);
         iv.setPreserveRatio(true);
         
         HBox statsHBox = new HBox();
