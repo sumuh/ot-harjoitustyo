@@ -112,6 +112,33 @@ public class CatTest {
         assertEquals(100, cat.getFatigue());
     }
     
+    @Test
+    public void feedWorks() {
+        for (int i = 0; i < 20; i++) {
+            cat.raiseHunger();
+        }
+        cat.feed();
+        assertEquals(0, cat.getHunger());
+    }
+    
+    @Test
+    public void playWorks() {
+        for (int i = 0; i < 20; i++) {
+            cat.raiseBoredom();
+        }
+        cat.play();
+        assertEquals(0, cat.getBoredom());
+    }
+    
+    @Test
+    public void sleepWorks() {
+        for (int i = 0; i < 20; i++) {
+            cat.raiseFatigue();
+        }
+        cat.sleep();
+        assertEquals(0, cat.getFatigue());
+    }
+    
     
     
 }

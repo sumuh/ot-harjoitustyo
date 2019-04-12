@@ -5,6 +5,7 @@
  */
 package domain;
 
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,7 +23,26 @@ public class CatServiceTest {
     public void setup() throws Exception {
         this.catDao = new FakeCatDao();
         this.catService = new CatService(catDao);
-        this.cat = new Cat("testCat", 0, 0, 0); 
+        this.cat = catDao.create("testCat");
+        this.catDao.clearFile();
+    }
+    
+    @Test
+    public void createWorks() throws Exception {
+        Cat cat = catService.create("name");
+        assertEquals("name", cat.getName());
+    }
+    
+    @Test
+    public void saveAndGetFromFileWorks() throws Exception {
+        catService.save(cat);
+        Cat fileCat = catService.getCurrentCat();
+        assertEquals("testCat", fileCat.getName());
+    }
+    
+    @Test
+    public void getCurrentCatReturnsNullIfFileIsEmpty() {
+        assertEquals(null, catService.getCurrentCat());
     }
     
 }

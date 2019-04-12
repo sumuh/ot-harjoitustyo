@@ -6,12 +6,25 @@
 package domain;
 
 import dao.CatDao;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Susanna Muhli
  */
 public class FakeCatDao implements CatDao {
+    
+    //simulates the file that normal dao uses
+    List<Cat> fakeFile;
+    
+    public FakeCatDao() {
+        fakeFile = new ArrayList<>();
+    }
+    
+    public void clearFile() {
+        this.fakeFile.clear();
+    }
 
     @Override
     public Cat create(String name) {
@@ -21,12 +34,12 @@ public class FakeCatDao implements CatDao {
 
     @Override
     public Cat getFromFile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.fakeFile.get(0);
     }
 
     @Override
     public void save(Cat cat) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.fakeFile.add(cat);
     }
     
 }
