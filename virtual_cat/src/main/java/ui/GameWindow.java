@@ -27,6 +27,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -74,6 +75,34 @@ public class GameWindow {
         t3.start();
         t4.start();
         
+        Button feed = new Button("Feed");
+        Button play = new Button("Play");
+        Button sleep = new Button("Sleep");
+        
+        feed.setOnAction((event) -> {
+            try {
+                catService.feed();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
+        
+        play.setOnAction((event) -> {
+            try {
+                catService.play();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
+        
+        sleep.setOnAction((event) -> {
+            try {
+                catService.sleep();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
+        
         Image image = new Image("file:src/pixil-frame-160.png");
         ImageView iv = new ImageView(image);
         //iv.setFitWidth(150);
@@ -86,12 +115,20 @@ public class GameWindow {
         statsHBox.getChildren().add(boredom);
         statsHBox.getChildren().add(fatigue);
         
+        VBox buttonsVBox = new VBox();
+        buttonsVBox.setSpacing(20);
+        
+        buttonsVBox.getChildren().add(feed);
+        buttonsVBox.getChildren().add(play);
+        buttonsVBox.getChildren().add(sleep);
+        
         BorderPane borderpane = new BorderPane();
         borderpane.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         borderpane.setPadding(new Insets(20, 20, 20, 20));
         borderpane.setCenter(iv);
         borderpane.setBottom(info);
         borderpane.setTop(statsHBox);
+        borderpane.setRight(buttonsVBox);
         
         return borderpane;
     }
@@ -101,7 +138,6 @@ public class GameWindow {
                 @Override
                 protected Void call() throws Exception {
                         while (true) {
-                                catService.raiseOneStat(stat);
                                 if (stat.equals("Hunger")) {
                                     updateMessage("Hunger: " + catService.getCurrentCat().getHunger());
                                 } else if (stat.equals("Boredom")) {
@@ -109,7 +145,7 @@ public class GameWindow {
                                 } else if (stat.equals("Fatigue")) {
                                     updateMessage("Fatigue: " + catService.getCurrentCat().getFatigue());
                                 }
-                                
+                                catService.raiseOneStat(stat);
                                 try {
                                         Thread.sleep(sleepTime);
                                 } catch (InterruptedException ex) {

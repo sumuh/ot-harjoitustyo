@@ -80,6 +80,35 @@ public class CatService {
         }
     }
     
+    public void feed() {
+        try {
+            Cat newCat = getCurrentCat();
+            newCat.feed();
+            save(newCat);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());   
+        }
+    }
+    
+    public void play() {
+        try {
+            Cat newCat = getCurrentCat();
+            newCat.play();
+            save(newCat);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());   
+        }
+    }
+    
+    public void sleep() {
+        try {
+            Cat newCat = getCurrentCat();
+            newCat.sleep();
+            save(newCat);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());   
+        }
+    }
     
     
 }

@@ -63,4 +63,16 @@ public class Cat {
         }
     }
     
+    public void feed() {
+        this.hunger = 0;
+    }
+    
+    public void play() {
+        this.boredom = 0;
+    }
+    
+    public void sleep() {
+        this.fatigue = 0;
+    }
+    
 }
