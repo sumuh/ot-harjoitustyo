@@ -34,13 +34,11 @@ import javafx.stage.Stage;
 public class UiHandler extends Application {
     
     private String tempName;
-    private String file;
     private CatService catService;
     
     @Override
     public void init() throws Exception {
-        this.file = "catfile.txt";
-        FileCatDao catDao = new FileCatDao(this.file);
+        FileCatDao catDao = new FileCatDao();
         this.catService = new CatService(catDao);
     }
     

@@ -6,6 +6,7 @@
 package ui;
 
 import domain.CatService;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.net.URL;
 import javafx.concurrent.Task;
@@ -22,6 +23,7 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -95,10 +97,10 @@ public class GameWindow {
             }
         });
         
-        Image image = new Image("file:src/main/resources/pixil-frame-160.png");
+        Image image = new Image(this.getClass().getResourceAsStream("/images/pixil-frame-160.png"));
         ImageView iv = new ImageView(image);
         //iv.setFitWidth(150);
-        iv.setPreserveRatio(true);
+        //iv.setPreserveRatio(true);
         
         HBox statsHBox = new HBox();
         statsHBox.setSpacing(20);

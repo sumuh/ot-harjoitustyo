@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import domain.Cat;
+import java.net.URL;
 
 /**
  *
@@ -17,12 +18,16 @@ import domain.Cat;
  */
 public class FileCatDao implements CatDao {
     
-    private String file;
+    private File file;
     
     //create cat from the information in the file
     
-    public FileCatDao(String file) {
-        this.file = file;
+    public FileCatDao() {
+        try {
+            this.file = new File("catfile.txt");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
     
     @Override
@@ -35,7 +40,7 @@ public class FileCatDao implements CatDao {
     //save current cat in file
     @Override
     public void save(Cat saveCat) {
-        try (FileWriter writer = new FileWriter(new File(file))) {
+        try (FileWriter writer = new FileWriter(this.file)) {
             writer.write(saveCat.getName() + ";" + saveCat.getHunger() + ";" + saveCat.getBoredom() + ";" + saveCat.getFatigue());
             writer.flush();
             writer.close();
@@ -48,7 +53,7 @@ public class FileCatDao implements CatDao {
     public Cat getFromFile() {
         Cat cat = null;
         try {
-            Scanner scanner = new Scanner(new File(file));
+            Scanner scanner = new Scanner(this.file);
             while (scanner.hasNextLine()) {
                 String[] stats = scanner.nextLine().split(";");
                 String name = stats[0];
