@@ -11,4 +11,5 @@
 | 10.4. | 1    | statsien toiminnan hiomista |
 | 11.4. | 2    | kuvan lisääminen sovellukseen, testikattavuuden parantaminen |
 | 12.4. | 3    | grafiikan luonti, toiminnallisuuden laajentaminen, testikattavuuden parantaminen |
-| yht   | 24   | 
+| 16.4. | 3    | toimivan jar-tiedoston luominen ja releasen tekeminen |
+| yht   | 27   | 
