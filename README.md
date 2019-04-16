@@ -10,6 +10,8 @@ Sovellus on klassikoksi muodostuneesta virtuaalisesta lemmikistä Tamagotchista 
 
 [arkkitehtuuri.md](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[viikko 5 release] (https://github.com/sumuh/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Komentorivitoiminnot
 
 Ohjelman suoritus komentoriviltä komennolla mvn compile exec:java -Dexec.mainClass=ui.Main
