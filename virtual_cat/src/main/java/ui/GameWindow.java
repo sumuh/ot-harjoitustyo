@@ -103,7 +103,7 @@ public class GameWindow {
             }
         });
         
-        Image image = new Image("file:src/pixil-frame-160.png");
+        Image image = new Image("file:pixil-frame-160.png");
         ImageView iv = new ImageView(image);
         //iv.setFitWidth(150);
         iv.setPreserveRatio(true);
