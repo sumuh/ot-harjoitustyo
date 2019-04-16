@@ -5,31 +5,23 @@
  */
 package ui;
 
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-
 import domain.CatService;
-import domain.Cat;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.CyclicBarrier;
-import javafx.application.Platform;
+import java.io.File;
+import java.net.URL;
 import javafx.concurrent.Task;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 /**
  *
@@ -103,7 +95,7 @@ public class GameWindow {
             }
         });
         
-        Image image = new Image("file:pixil-frame-160.png");
+        Image image = new Image("file:src/main/resources/pixil-frame-160.png");
         ImageView iv = new ImageView(image);
         //iv.setFitWidth(150);
         iv.setPreserveRatio(true);
@@ -156,6 +148,19 @@ public class GameWindow {
                 }
         };
         return dynamicTimeTask;
+    }
+    
+    private File getFileFromResources(String fileName) {
+
+        ClassLoader classLoader = getClass().getClassLoader();
+
+        URL resource = classLoader.getResource(fileName);
+        if (resource == null) {
+            throw new IllegalArgumentException("file is not found!");
+        } else {
+            return new File(resource.getFile());
+        }
+
     }
     
 }
