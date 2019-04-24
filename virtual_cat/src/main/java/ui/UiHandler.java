@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,7 +45,11 @@ public class UiHandler extends Application {
     @Override
     public void init() throws Exception {
         Properties properties = new Properties();
-        properties.load(new FileInputStream("src/main/resources/config.properties"));
+//        properties.load(new FileInputStream("src/main/resources/config.properties"));
+        ClassLoader cl = this.getClass().getClassLoader();
+        try (InputStream stream = cl.getResourceAsStream("config.properties")) {
+           properties.load(stream);
+        }
         String filename = properties.getProperty("catfile");
         FileCatDao catDao = new FileCatDao(filename);
         this.catService = new CatService(catDao);
