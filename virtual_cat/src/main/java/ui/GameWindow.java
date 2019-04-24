@@ -6,7 +6,6 @@
 package ui;
 
 import domain.CatService;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.net.URL;
 import javafx.concurrent.Task;
@@ -23,7 +22,6 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javax.imageio.ImageIO;
 
 /**
  *

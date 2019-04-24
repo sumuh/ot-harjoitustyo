@@ -10,7 +10,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import domain.Cat;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.net.URL;
+import java.util.Properties;
 
 /**
  *
@@ -22,9 +25,9 @@ public class FileCatDao implements CatDao {
     
     //create cat from the information in the file
     
-    public FileCatDao() {
+    public FileCatDao(String filename) {
         try {
-            this.file = new File("catfile.txt");
+            this.file = new File(filename);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

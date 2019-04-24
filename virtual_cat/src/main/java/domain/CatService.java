@@ -60,6 +60,8 @@ public class CatService {
         
     };
     
+    
+    
     public void raiseOneStat(String stat) {
         try {
             if (stat.equals("Hunger")) {
