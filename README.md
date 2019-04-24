@@ -22,4 +22,6 @@ Testikattavuusraportti luodaan komennolla mvn test jacoco:report
 
 Checkstylen suoritus komennolla mvn jxr:jxr checkstyle:checkstyle
 
+Jar-tiedoston luonti komennolla mvn package ja suoritus komennolla java -jar virtual_cat-1.0-SNAPSHOT.jar
+
 
