@@ -12,6 +12,8 @@ Sovellus on klassikoksi muodostuneesta virtuaalisesta lemmikistä Tamagotchista 
 
 [viikko 5 release](https://github.com/sumuh/ot-harjoitustyo/releases/tag/viikko5)
 
+[viikko 6 release](https://github.com/sumuh/ot-harjoitustyo/releases/tag/viikko6)
+
 ## Komentorivitoiminnot
 
 Ohjelman suoritus komentoriviltä komennolla mvn compile exec:java -Dexec.mainClass=ui.Main
