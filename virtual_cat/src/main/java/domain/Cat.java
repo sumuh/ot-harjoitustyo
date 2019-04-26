@@ -8,6 +8,7 @@ package domain;
 /**
  *
  * @author Susanna Muhli
+ * Luokka hallinnoi kissaa
  */
 public class Cat {
     
@@ -39,6 +40,9 @@ public class Cat {
         return fatigue;
     }
     
+    /**
+     * Metodi kasvattaa kaikkkia kissan statseja yhdellä
+     */
     public void raiseAllStats() {
         this.raiseHunger();
         this.raiseBoredom();
