@@ -12,4 +12,7 @@
 | 11.4. | 2    | kuvan lisääminen sovellukseen, testikattavuuden parantaminen |
 | 12.4. | 3    | grafiikan luonti, toiminnallisuuden laajentaminen, testikattavuuden parantaminen |
 | 16.4. | 3    | toimivan jar-tiedoston luominen ja releasen tekeminen |
-| yht   | 27   | 
+| 23.4. | 5    | pysyväistallennuksen luominen |
+| 25.4. | 1    | lisää testejä |
+| 26.4. | 3    | javadocin tekeminen ja yleinen parantelu |
+| yht   | 36   | 
