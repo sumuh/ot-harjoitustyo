@@ -30,20 +30,21 @@ public class CatDaoTest {
     public void setUp() throws Exception {
         catfile = testFolder.newFile("testfile_cats.txt");
         
-        try (FileWriter file = new FileWriter(catfile.getAbsolutePath())) {
-            file.write("testname;0;0;0");
-        }
+//        try (FileWriter file = new FileWriter(catfile.getAbsolutePath())) {
+//            file.write("testname;0;0;0");
+//        }
         
         dao = new FileCatDao(catfile.getAbsolutePath());
+        dao.create("testname");
     }
     
-//    @Test
-//    public void catIsReadCorrectlyFromFile() {
-//        Cat cat = dao.getFromFile();
-//        assertEquals("testname", cat.getName());
-//        assertEquals(0, cat.getHunger());
-//        assertEquals(0, cat.getBoredom());
-//        assertEquals(0, cat.getFatigue());
-//    }
+    @Test
+    public void catIsReadCorrectlyFromFile() {
+        Cat cat = dao.getFromFile();
+        assertEquals("testname", cat.getName());
+        assertEquals(0, cat.getHunger());
+        assertEquals(0, cat.getBoredom());
+        assertEquals(0, cat.getFatigue());
+    }
     
 }
