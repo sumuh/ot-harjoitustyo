@@ -14,5 +14,5 @@
 | 16.4. | 3    | toimivan jar-tiedoston luominen ja releasen tekeminen |
 | 23.4. | 5    | pysyväistallennuksen luominen |
 | 25.4. | 1    | lisää testejä |
-| 26.4. | 3    | javadocin tekeminen ja yleinen parantelu |
-| yht   | 36   | 
+| 26.4. | 4    | javadocin tekeminen ja yleinen parantelu, alustava käyttöohje ja arkkitehtuurikuvaus |
+| yht   | 37   | 
