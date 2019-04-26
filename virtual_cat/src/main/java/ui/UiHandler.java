@@ -34,14 +34,17 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
- *
- * @author Susanna Muhli
+ *Luokka luo ui:n ja käsittelee näkymän vaihtamista aloitusmenusta nimenluontinäkymään tai pelinäkymään.
  */
 public class UiHandler extends Application {
     
     private String tempName;
     private CatService catService;
     
+    /**
+     * Init-metodi tarkistaa config.properties-tiedostosta oikean tiedoston nimen ja luo daon jolle nimi annetaan parametrina. Luodaan myös catService joka saa parametrina daon.
+     * @throws Exception 
+     */
     @Override
     public void init() throws Exception {
         Properties properties = new Properties();
@@ -54,6 +57,11 @@ public class UiHandler extends Application {
         this.catService = new CatService(catDao);
     }
     
+    /**
+     * Hoitaa näkymien luomisen ja niiden välillä vaihtamisen nappeja painamalla.
+     * @param window ikkuna jossa näkymän näytetään
+     * @throws Exception 
+     */
     @Override
     public void start(Stage window) throws Exception {
         
@@ -98,7 +106,6 @@ public class UiHandler extends Application {
             nameButton.setDefaultButton(true);
             
             nameButton.setOnAction((event2) -> {
-                //button saves name in file and changes scene to game scene 
                 tempName = nameField.getText();
 
                 try {
@@ -135,50 +142,6 @@ public class UiHandler extends Application {
         
         window.setTitle("Virtual cat");
         window.show();
-        
-        
-        
-        //create scene where name is given
-        
-//        if (this.catService.getCurrentCat() == null) {
-////            Label nameLabel = new Label("Choose a name for your cat:");
-////            TextField nameField = new TextField("");
-////            Button nameButton = new Button("Select");
-////            nameButton.setDefaultButton(true);
-////            
-////            nameButton.setOnAction((event) -> {
-////            //button saves name in file and changes scene to game scene 
-////            tempName = nameField.getText();
-////            
-////            try {
-////                catService.create(tempName);
-////      
-////                Scene gameScene = new Scene(gameWindow.getWindow(this.catService), 400, 300);
-////                window.setScene(gameScene);
-////
-////            } catch (Exception e) {
-////                System.out.println(e.getMessage());
-////            }
-////            
-////            });
-////        
-////            borderpane.setTop(nameLabel);
-////            borderpane.setCenter(nameButton);
-////            borderpane.setLeft(nameField);
-////            
-////            Scene nameScene = new Scene(borderpane, 300, 100);
-////            window.setScene(nameScene);
-////
-////            window.setTitle("Virtual cat");
-////            window.show();
-//            
-//        } else {
-////            Scene gameScene = new Scene(gameWindow.getWindow(this.catService), 400, 300);
-////            window.setScene(gameScene);
-////            
-////            window.setTitle("Virtual cat");
-////            window.show();
-//        }
         
     }
 }

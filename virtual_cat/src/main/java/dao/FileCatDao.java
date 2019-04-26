@@ -16,36 +16,29 @@ import java.net.URL;
 import java.util.Properties;
 
 /**
- *
- * @author Susanna Muhli
+ *Luokka huolehtii kissan tietojen tallentamisesta tiedostoon. Luokka toteuttaa CatDao-rajapinnan.
  */
 public class FileCatDao implements CatDao {
     
     private String file;
     
-    //create cat from the information in the file
-    
+    /**
+     * Konstruktori saa parametrina tiedoston nimen ja asettaa sen oliomuuttujan nimeksi. 
+     * @param filename kertoo tiedoston nimen, johon kissan tiedot halutaan tallentaa
+     */
     public FileCatDao(String filename) {
         try {
-          this.file = filename;
+            this.file = filename;
         } catch (Exception e) {
             System.out.println(e.getMessage() + "virhe");
         }
     }
     
-    private File getFileFromResources(String fileName) {
-
-        ClassLoader classLoader = getClass().getClassLoader();
-
-        URL resource = classLoader.getResource(fileName);
-        if (resource == null) {
-            throw new IllegalArgumentException("file is not found!");
-        } else {
-            return new File(resource.getFile());
-        }
-
-    }
-    
+    /**
+     * Luo kissan annetun nimen perusteella ja asettaa alkustatseiksi nollat sekä tallentaa uuden kissan tiedostoon.
+     * @param name käyttäjän syöttämä nimi
+     * @return luotu kissa
+     */
     @Override
     public Cat create(String name) {
         Cat createdCat = new Cat(name, 0, 0, 0);
@@ -53,7 +46,10 @@ public class FileCatDao implements CatDao {
         return createdCat;
     }
     
-    //save current cat in file
+    /**
+     * Tallentaa parametrina saadun kissan tiedostoon.
+     * @param saveCat kissa joka halutaan tallentaa
+     */
     @Override
     public void save(Cat saveCat) {
         try (FileWriter writer = new FileWriter(new File(this.file))) {
@@ -65,6 +61,10 @@ public class FileCatDao implements CatDao {
         }
     }
     
+    /**
+     * Palauttaa tämänhetkisen tiedostossa olevan kissan. Jos tiedosto on tyhjä, palauttaa null.
+     * @return tiedostosta löytynyt kissa tai null
+     */
     @Override
     public Cat getFromFile() {
         Cat cat = null;

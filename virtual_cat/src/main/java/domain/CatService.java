@@ -10,22 +10,25 @@ import dao.FileCatDao;
 import dao.CatDao;
 
 /**
- *
- * @author Susanna Muhli
+ *Luokka toimii ui:n ja dao:n välisenä kommunikaationa. Luokka tarjoaa metodit joita ui tarvitsee ja hyödyntää niissä dao:n metodeita.
  */
 public class CatService {
     
-    //this class manages stats etc
-    
     private CatDao catDao;
     
+    /**
+     * Konstruktori saa parametrina daon jonka metodeja se hyödyntää.
+     * @param catDao Ui:ssa luotu dao
+     * @throws Exception 
+     */
     public CatService(CatDao catDao) throws Exception {
         this.catDao = catDao;
-//        if (catDao.getFromFile() != null) {
-//            this.currentCat = catDao.getFromFile();
-//        }
     }
     
+    /**
+     * Metodi palauttaa tällä hetkellä tiedostossa olevan kissan oliona.
+     * @return tämänhetkinen kissaolio
+     */
     public Cat getCurrentCat() {
         try {
             return this.catDao.getFromFile();
@@ -35,12 +38,21 @@ public class CatService {
         return null;
     }
     
+    /**
+     * Metodi luo uuden kissan ja palauttaa sen.
+     * @param name käyttäjän määrittelemä nimi
+     * @return luotu kissa
+     * @throws Exception 
+     */
     public Cat create(String name) throws Exception {
         Cat createdCat = this.catDao.create(name);
-        //this.currentCat = createdCat;
         return createdCat;
     }
     
+    /**
+     * Tallentaa parametrina saadun kissan tiedostoon.
+     * @param cat 
+     */
     public void save(Cat cat) {
         try {
             this.catDao.save(cat);
@@ -49,6 +61,9 @@ public class CatService {
         }
     }
     
+    /**
+     * Nostaa kaikkia tiedostossa olevan kissan statseja yhdellä ja tallentaa uuden kissan tiedostoon.
+     */
     public void raiseCurrentCatStats() {
         try {
             Cat newCat = getCurrentCat();
@@ -61,7 +76,10 @@ public class CatService {
     };
     
     
-    
+    /**
+     * Nostaa parametrina annettua yksittäistä statsia yhdellä ja tallentaa uuden kissan tiedostoon.
+     * @param stat määrittelee sen, mitä statsia nostetaan
+     */
     public void raiseOneStat(String stat) {
         try {
             if (stat.equals("Hunger")) {
@@ -82,6 +100,9 @@ public class CatService {
         }
     }
     
+    /**
+     * Ruokkii kissan ja tallentaa sen tiedostoon.
+     */
     public void feed() {
         try {
             Cat newCat = getCurrentCat();
@@ -92,6 +113,9 @@ public class CatService {
         }
     }
     
+    /**
+     * Leikkii kissan kanssa ja tallentaa sen tiedostoon.
+     */
     public void play() {
         try {
             Cat newCat = getCurrentCat();
@@ -102,6 +126,9 @@ public class CatService {
         }
     }
     
+    /**
+     * Antaa kissan nukkua ja tallentaa sen tiedostoon.
+     */
     public void sleep() {
         try {
             Cat newCat = getCurrentCat();

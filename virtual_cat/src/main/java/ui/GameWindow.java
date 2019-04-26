@@ -24,13 +24,18 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 /**
- *
- * @author Susanna Muhli
+ *Luokka hallinnoi varsinaista peli-ikkunaa, jossa näkyy kissan kuva, tämänhetkiset statsit, kissan nimi sekä napit kissan hoitamiseen. 
  */
 public class GameWindow {
    
     CatService catService;
     
+    /**
+     * Luo borderpanen jossa on tarvittavat elementit. Luo jokaiselle statsille oman threadin.
+     * @param catService catService, jota luokka hyödyntää
+     * @return borderpane jota UiHandler-luokka käyttää
+     * @throws Exception 
+     */
     public Parent getWindow(CatService catService) throws Exception {
         
         Label hunger = new Label("");
@@ -97,8 +102,6 @@ public class GameWindow {
         
         Image image = new Image(this.getClass().getResourceAsStream("/images/pixil-frame-160.png"));
         ImageView iv = new ImageView(image);
-        //iv.setFitWidth(150);
-        //iv.setPreserveRatio(true);
         
         HBox statsHBox = new HBox();
         statsHBox.setSpacing(20);
@@ -125,6 +128,12 @@ public class GameWindow {
         return borderpane;
     }
     
+    /**
+     * Luo taskin, joka ylemmässä metodissa annetaan threadin hallittavaksi.
+     * @param stat stat, jonka hallinnoimiseksi task luodaan
+     * @param sleepTime aika, jonka kyseistä statsia hallinnoiva thread "nukkuu" eli käytännössä kuinka nopeasti stat nousee. Mitä isompi luku, sitä hitaammin stat nousee.
+     * @return task joka annetaan threadille
+     */
     public Task createDynamicTimeTask(String stat, int sleepTime) {
         Task dynamicTimeTask = new Task<Void>() {
                 @Override
@@ -148,19 +157,6 @@ public class GameWindow {
                 }
         };
         return dynamicTimeTask;
-    }
-    
-    private File getFileFromResources(String fileName) {
-
-        ClassLoader classLoader = getClass().getClassLoader();
-
-        URL resource = classLoader.getResource(fileName);
-        if (resource == null) {
-            throw new IllegalArgumentException("file is not found!");
-        } else {
-            return new File(resource.getFile());
-        }
-
     }
     
 }
