@@ -63,23 +63,31 @@ public class UiHandler extends Application {
         
         Button continueGame = new Button("Continue game");
         Button newCat = new Button("Create new cat");
+        Label errormessage = new Label("");
         
         continueGame.setOnAction((event) -> {
-            GameWindow gameWindow = new GameWindow();
-            Scene gameScene;
-            try {
-                gameScene = new Scene(gameWindow.getWindow(this.catService), 400, 300);
-                window.setScene(gameScene);
-            } catch (Exception ex) {
-                Logger.getLogger(UiHandler.class.getName()).log(Level.SEVERE, null, ex);
+            
+            if (catService.getCurrentCat() == null) {
+                errormessage.setText("Error: no existing cat");
+            } else {
+                GameWindow gameWindow = new GameWindow();
+                Scene gameScene;
+                try {
+                    gameScene = new Scene(gameWindow.getWindow(this.catService), 400, 300);
+                    window.setScene(gameScene);
+                } catch (Exception ex) {
+                    Logger.getLogger(UiHandler.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+
+                window.setTitle("Virtual cat");
+                window.show();
             }
-            
-            
-            window.setTitle("Virtual cat");
-            window.show();
+    
         });
         
         newCat.setOnAction((event) -> {
+            
             BorderPane borderpane2 = new BorderPane();
             borderpane2.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
             borderpane2.setPadding(new Insets(20, 20, 20, 20));
@@ -120,6 +128,7 @@ public class UiHandler extends Application {
         startMenu.setSpacing(10);
         startMenu.getChildren().add(continueGame);
         startMenu.getChildren().add(newCat);
+        startMenu.getChildren().add(errormessage);
         borderpane.setCenter(startMenu);
         Scene startScene = new Scene(borderpane, 300, 100);
         window.setScene(startScene);

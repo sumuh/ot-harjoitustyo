@@ -61,7 +61,7 @@ public class FileCatDao implements CatDao {
             writer.flush();
             writer.close();
         } catch (Exception e) {
-            System.out.println(e.getMessage() + "bloop");
+            System.out.println(e.getMessage());
         }
     }
     
@@ -79,7 +79,7 @@ public class FileCatDao implements CatDao {
                 cat = new Cat(name, hunger, boredom, fatigue);
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage() + "bleep");
+            System.out.println(e.getMessage());
         }
         return cat;
     }
