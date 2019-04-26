@@ -21,16 +21,29 @@ import java.util.Properties;
  */
 public class FileCatDao implements CatDao {
     
-    private File file;
+    private String file;
     
     //create cat from the information in the file
     
     public FileCatDao(String filename) {
         try {
-            this.file = new File(filename);
+          this.file = filename;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() + "virhe");
         }
+    }
+    
+    private File getFileFromResources(String fileName) {
+
+        ClassLoader classLoader = getClass().getClassLoader();
+
+        URL resource = classLoader.getResource(fileName);
+        if (resource == null) {
+            throw new IllegalArgumentException("file is not found!");
+        } else {
+            return new File(resource.getFile());
+        }
+
     }
     
     @Override
@@ -43,12 +56,12 @@ public class FileCatDao implements CatDao {
     //save current cat in file
     @Override
     public void save(Cat saveCat) {
-        try (FileWriter writer = new FileWriter(this.file)) {
+        try (FileWriter writer = new FileWriter(new File(this.file))) {
             writer.write(saveCat.getName() + ";" + saveCat.getHunger() + ";" + saveCat.getBoredom() + ";" + saveCat.getFatigue());
             writer.flush();
             writer.close();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() + "bloop");
         }
     }
     
@@ -56,7 +69,7 @@ public class FileCatDao implements CatDao {
     public Cat getFromFile() {
         Cat cat = null;
         try {
-            Scanner scanner = new Scanner(this.file);
+            Scanner scanner = new Scanner(new File(this.file));
             while (scanner.hasNextLine()) {
                 String[] stats = scanner.nextLine().split(";");
                 String name = stats[0];
@@ -66,7 +79,7 @@ public class FileCatDao implements CatDao {
                 cat = new Cat(name, hunger, boredom, fatigue);
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() + "bleep");
         }
         return cat;
     }

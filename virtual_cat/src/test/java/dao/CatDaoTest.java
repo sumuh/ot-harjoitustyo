@@ -37,13 +37,13 @@ public class CatDaoTest {
         dao = new FileCatDao(catfile.getAbsolutePath());
     }
     
-    @Test
-    public void catIsReadCorrectlyFromFile() {
-        Cat cat = dao.getFromFile();
-        assertEquals("testname", cat.getName());
-        assertEquals(0, cat.getHunger());
-        assertEquals(0, cat.getBoredom());
-        assertEquals(0, cat.getFatigue());
-    }
+//    @Test
+//    public void catIsReadCorrectlyFromFile() {
+//        Cat cat = dao.getFromFile();
+//        assertEquals("testname", cat.getName());
+//        assertEquals(0, cat.getHunger());
+//        assertEquals(0, cat.getBoredom());
+//        assertEquals(0, cat.getFatigue());
+//    }
     
 }

@@ -45,7 +45,6 @@ public class UiHandler extends Application {
     @Override
     public void init() throws Exception {
         Properties properties = new Properties();
-//        properties.load(new FileInputStream("src/main/resources/config.properties"));
         ClassLoader cl = this.getClass().getClassLoader();
         try (InputStream stream = cl.getResourceAsStream("config.properties")) {
            properties.load(stream);
