@@ -49,9 +49,16 @@ public class UiHandler extends Application {
     public void init() throws Exception {
         Properties properties = new Properties();
         ClassLoader cl = this.getClass().getClassLoader();
-        try (InputStream stream = cl.getResourceAsStream("config.properties")) {
-           properties.load(stream);
+        
+        InputStream stream = cl.getResourceAsStream("config.properties");
+        
+        if (stream == null) {
+            FileWriter writer = new FileWriter(new File("config.properties"));
+            writer.write("catfile=catfile.txt");
         }
+                
+        properties.load(stream);
+        
         String filename = properties.getProperty("catfile");
         FileCatDao catDao = new FileCatDao(filename);
         this.catService = new CatService(catDao);
