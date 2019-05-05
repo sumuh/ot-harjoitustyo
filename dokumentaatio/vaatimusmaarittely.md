@@ -20,5 +20,5 @@
 
 **Jatkokehitysideoita**
 
-* Jos käyttäjä pitää kissasta hyvää huolta, hän saa ‘saavutuksia’ (achievements)
-* Kissa on aluksi pentu, sitten aikuinen ja lopulta seniori
+* Jotain negatiivista seuraa siitä, jos kissaa ei hoida tarpeeksi hyvin, ja päinvastoin
+* Uusia kissakuvakkeita, käyttäjä saa valita miltä kissa näyttää
