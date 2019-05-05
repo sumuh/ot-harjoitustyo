@@ -83,12 +83,6 @@ public class CatServiceTest {
         assertEquals(1, catService.getCurrentCat().getFatigue());
     }
     
-//    @Test(expected = Exception.class)
-//    public void raiseOneStatThrowsException() {
-//        catDao.clearFile();
-//        catService.raiseOneStat("Test");
-//    }
-    
     @Test
     public void feedWorks() {
         catService.raiseOneStat("Hunger");
