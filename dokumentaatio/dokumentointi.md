@@ -6,9 +6,11 @@
 
 **Perusversion tarjoama toiminnallisuus**
 
-*Kun peli käynnistetään ensimmäistä kertaa (tai aloitetaan alusta):*
+*Aina peliä käynnistettäessä:*
 
-* Käyttäjä saa valita listasta kissalleen nimen ja rodun
+* Käyttäjä saa valita jatkaako vanhaa tallennusta vai luoko uuden kissan
+* Jos käyttäjä päättää luoda uuden tallennuksen, hän keksii kissalleen nimen
+* Tämän jälkeen siirrytään pelinäkymään
 
 *Pelin aikana*
 
