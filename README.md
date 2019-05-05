@@ -6,13 +6,15 @@ Sovellus on klassikoksi muodostuneesta virtuaalisesta lemmikistä Tamagotchista 
 
 [Käyttöohje](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
-[Dokumentointi](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/dokumentointi.md)
+[Vaatimusmäärittely](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
-[Tyoaikakirjanpito](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+[Työaikakirjanpito](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
 [Arkkitehtuuri](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
 [Testausdokumentti](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
+
+## Releaset
 
 [Viikko 5 release](https://github.com/sumuh/ot-harjoitustyo/releases/tag/viikko5)
 
