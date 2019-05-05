@@ -15,4 +15,5 @@
 | 23.4. | 5    | pysyväistallennuksen luominen |
 | 25.4. | 1    | lisää testejä |
 | 26.4. | 4    | javadocin tekeminen ja yleinen parantelu, alustava käyttöohje ja arkkitehtuurikuvaus |
-| yht   | 37   | 
+| 5.5   | 4    | viimeistely ja varmistus että kaikki toimii |
+| yht   | 41   | 
