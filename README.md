@@ -4,30 +4,56 @@ Sovellus on klassikoksi muodostuneesta virtuaalisesta lemmikistä Tamagotchista 
 
 ## Dokumentaatio
 
-[käyttöohje](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+[Käyttöohje](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
-[dokumentointi](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/dokumentointi.md)
+[Dokumentointi](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/dokumentointi.md)
 
-[tyoaikakirjanpito](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+[Tyoaikakirjanpito](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
-[arkkitehtuuri](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+[Arkkitehtuuri](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-[viikko 5 release](https://github.com/sumuh/ot-harjoitustyo/releases/tag/viikko5)
+[Testausdokumentti](https://github.com/sumuh/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
 
-[viikko 6 release](https://github.com/sumuh/ot-harjoitustyo/releases/tag/viikko6)
+[Viikko 5 release](https://github.com/sumuh/ot-harjoitustyo/releases/tag/viikko5)
+
+[Viikko 6 release](https://github.com/sumuh/ot-harjoitustyo/releases/tag/viikko6)
 
 ## Komentorivitoiminnot
 
-Ohjelman suoritus komentoriviltä komennolla mvn compile exec:java -Dexec.mainClass=ui.Main
+Ohjelman suoritus komentoriviltä komennolla
 
-Testit suoritetaan komennolla mvn test
+<pre>
+mvn compile exec:java -Dexec.mainClass=ui.Main
+</pre>
 
-Testikattavuusraportti luodaan komennolla mvn test jacoco:report
+Testit suoritetaan komennolla
 
-Checkstylen suoritus komennolla mvn jxr:jxr checkstyle:checkstyle
+<pre>
+mvn test
+</pre>
 
-Jar-tiedoston luonti komennolla mvn package ja suoritus komennolla java -jar virtual_cat-1.0-SNAPSHOT.jar
+Testikattavuusraportti luodaan komennolla
 
-Javadocin generointi komennolla mvn javadoc:javadoc
+<pre>
+mvn test jacoco:report
+</pre>
+
+Checkstylen suoritus komennolla
+
+<pre>
+mvn jxr:jxr checkstyle:checkstyle
+</pre>
+
+Jar-tiedoston luonti komennolla mvn package ja suoritus komennolla
+
+<pre>
+java -jar virtual_cat-1.0-SNAPSHOT.jar
+</pre>
+
+Javadocin generointi komennolla
+
+<pre>
+mvn javadoc:javadoc
+</pre>
 
 
