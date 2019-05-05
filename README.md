@@ -16,9 +16,11 @@ Sovellus on klassikoksi muodostuneesta virtuaalisesta lemmikistä Tamagotchista 
 
 ## Releaset
 
-[Viikko 5 release](https://github.com/sumuh/ot-harjoitustyo/releases/tag/viikko5)
+[Viikko 7 release](https://github.com/sumuh/ot-harjoitustyo/releases/tag/viikko7)
 
 [Viikko 6 release](https://github.com/sumuh/ot-harjoitustyo/releases/tag/viikko6)
+
+[Viikko 5 release](https://github.com/sumuh/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Komentorivitoiminnot
 
